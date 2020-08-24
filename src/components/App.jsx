@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "bootstrap/dist/css/bootstrap.css";
 import Row from './Row';
 
 const symbolsMap = {
@@ -42,8 +41,8 @@ class App extends Component {
 
   processBoard() {
     let won = false;
-    patterns.forEach(pattern => {
-      length.firstMark = this.state.boardState[pattern[0]];
+    patterns.forEach((pattern) => {
+      const firstMark = this.state.boardState[pattern[0]];
 
       if (firstMark !== 2) {
         const marks = this.state.boardState.filter((mark, index) => {
@@ -165,7 +164,7 @@ class App extends Component {
     }
     return (
       <div>
-        <div class="container jumbotron" id="container">
+        <div className="container jumbotron" id="container">
           <h3>TIC TAC TOE</h3>
           <p>
             <a href="./?AI" onClick={this.handleModeChange} id="ai">
@@ -183,10 +182,12 @@ class App extends Component {
               Reset board
             </a>
           </p>
-          <p>{String.fromCharCode(symbolsMap[this.state.turn][1])}'s turn</p>
+          <p>{String.fromCharCode(symbolsMap[this.state.turn][1])}
+          's turn
+          </p>
           <div className="board">{rows}</div>
-          <p class="alert alert-success" role="alert" id="message1"></p>
-          <p class="alert alert-info" role="alert" id="message2"></p>
+          <p className="alert alert-success" role="alert" id="message1"></p>
+          <p className="alert alert-info" role="alert" id="message2"></p>
         </div>
       </div>
     );
